@@ -24,7 +24,8 @@ def new_matrix(rows = 4, cols = 4):
     return m
 
 def print_matrix( matrix ):
-    print matrix
+    for i in matrix:
+        print i
     pass
 
 def ident( matrix ):
@@ -43,7 +44,9 @@ def ident( matrix ):
     pass
 
 def scalar_mult( matrix, x ):
-    
+    for i in range(len(matrix)):
+        for j in range (len(matrix[0])):
+            matrix[i][j]*=x
     pass
 
 #m1 * m2 -> m2

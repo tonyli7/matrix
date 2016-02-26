@@ -4,8 +4,10 @@ from draw import *
 screen = new_screen()
 color = [ 0, 255, 0 ]
 
-mat=[ [0,1,3], [2,3,4]]
-print mat
+mat=new_matrix()
+print_matrix( mat)
 ident(mat)
-print mat
+print_matrix( mat)
+scalar_mult(mat, 3)
+print_matrix( mat)
 display(screen)
