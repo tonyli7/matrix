@@ -51,5 +51,18 @@ def scalar_mult( matrix, x ):
 
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
+    if not len(m1[0]) == len(m2):
+        print "length of matrix-1 does not match height of matrix-2"
+        return -1
+    new=new_matrix(len(m1),len(m2[0]))
+    ctr1=0
+    t=0
+    for i in range(len(m1)):
+        while t < len(m1):
+            for j in range(len(m2[0])):
+                new[ctr1][t]+=m1[i][j]*m2[j][i]
+            t+=1
+        ctr1+=1
+    return new
     pass
 
