@@ -1,9 +1,23 @@
 import math
 
 def make_translate( x, y, z ):
+    trans_mat=[
+        [1,0,0,x],
+        [0,1,0,y],
+        [0,0,1,z],
+        [0,0,0,1]
+    ]
+    return trans_mat
     pass
 
 def make_scale( x, y, z ):
+    scale_mat=[
+        [x,0,0,0],
+        [0,y,0,0],
+        [0,0,z,0],
+        [0,0,0,1]
+    ]
+    return scale_mat
     pass
     
 def make_rotX( theta ):   

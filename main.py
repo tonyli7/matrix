@@ -21,5 +21,6 @@ print "m2"
 print_matrix(m2)
 print "m1*m2"
 print_matrix( matrix_mult(m1,m2))
-
+print_matrix(make_translate(1,2,3))
+print_matrix(make_scale(3,2,1))
 #display(screen)
