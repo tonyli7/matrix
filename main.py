@@ -42,8 +42,12 @@ add_edge(m, 100,100,0,0,100,0)
 add_edge(m, 0,100,0,0,0,0)
 
 rotZ45=make_rotZ(45)
-print_matrix(m)
+T100100=make_translate(100,100,0)
+
+
 fm=matrix_mult(rotZ45,m)
+print_matrix(fm)
+#fm=matrix_mult(T100100,fm)
 draw_lines(fm,screen,color)
 
 display(screen)
