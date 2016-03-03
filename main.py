@@ -23,10 +23,27 @@ print "m1*m2"
 print_matrix( matrix_mult(m1,m2))
 print_matrix(make_translate(1,2,3))
 print_matrix(make_scale(3,2,1))
-"""
+
 m1=[[1,2,3,4], [4,5,6,7], [7,8,9,10],[1,1,1,1]]
 rotZ=make_rotZ(360)
 print_matrix(matrix_mult(rotZ,m1))
 add_edge(m1,5,8,11,6,9,12)
 print_matrix(m1)
-#display(screen)
+"""
+m=[
+    [0,100],
+    [0,0],
+    [0,0],
+    [1,1]
+]
+
+add_edge(m, 100,0,0,100,100,0)
+add_edge(m, 100,100,0,0,100,0)
+add_edge(m, 0,100,0,0,0,0)
+
+rotZ45=make_rotZ(45)
+print_matrix(m)
+fm=matrix_mult(rotZ45,m)
+draw_lines(fm,screen,color)
+
+display(screen)

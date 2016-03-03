@@ -89,8 +89,8 @@ def scalar_mult( matrix, x ):
 
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
-    if not len(m1) == len(m2[0]):
-        print "Error: length of matrix-1: %d does not match height of matrix-2:%d\n"%(len(m1),len(m2[0]))
+    if not len(m1[0]) == len(m2):
+        print "Error: length of matrix-1: %d does not match height of matrix-2:%d\n"%(len(m1[0]),len(m2[0]))
         return -1
     new=new_matrix(len(m1),len(m2[0]))
     ctr=0
