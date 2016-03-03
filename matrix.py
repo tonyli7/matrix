@@ -20,13 +20,37 @@ def make_scale( x, y, z ):
     return scale_mat
     pass
     
-def make_rotX( theta ):   
+def make_rotX( theta ):
+    phi=theta*math.pi/180
+    rotX_mat=[
+        [1,0,0,0],
+        [0,math.cos(phi),-math.sin(phi),0],
+        [0,math.sin(phi),math.cos(phi),0],
+        [0,0,0,1]
+    ]
+    return rotX_mat
     pass
 
 def make_rotY( theta ):
+    phi=theta*math.pi/180
+    rotY_mat=[
+        [math.cos(phi),0,-math.sin(phi),0],
+        [0,1,0,0],
+        [math.sin(phi),math.cos(phi),1,0],
+        [0,0,0,1]
+    ]
+    return rotY_mat
     pass
 
 def make_rotZ( theta ):
+    phi=theta*math.pi/180
+    rotZ_mat=[
+        [math.cos(phi),-math.sin(phi),0,0],
+        [math.sin(phi),math.cos(phi),0,0],
+        [0,0,1,0],
+        [0,0,0,1]
+    ]
+    return rotZ_mat
     pass
 
 def new_matrix(rows = 4, cols = 4):
@@ -66,15 +90,15 @@ def scalar_mult( matrix, x ):
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
     if not len(m1) == len(m2[0]):
-        print "Error: length of matrix-1 does not match height of matrix-2\n"
+        print "Error: length of matrix-1: %d does not match height of matrix-2:%d\n"%(len(m1),len(m2[0]))
         return -1
     new=new_matrix(len(m1),len(m2[0]))
     ctr=0
    
-    for i in range(len(m1)):
+    for i in range(len(m1)):#loops rows
         t=0
-        while t < len(m1):
-            for j in range(len(m2)):
+        while t < len(m1):#number of times it loops
+            for j in range(len(m2)):#loops row elements in m1 and col in m2
                 new[ctr][t]+=m1[i][j]*m2[j][t]
                 #print str(m1[i][j])+" * "+str(m2[j][t]) , ctr, t
             t+=1
