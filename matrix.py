@@ -85,6 +85,7 @@ def scalar_mult( matrix, x ):
     for i in range(len(matrix)):
         for j in range (len(matrix[0])):
             matrix[i][j]*=x
+    return matrix
     pass
 
 #m1 * m2 -> m2

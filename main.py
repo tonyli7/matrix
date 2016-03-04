@@ -30,29 +30,35 @@ print_matrix(matrix_mult(rotZ,m1))
 add_edge(m1,5,8,11,6,9,12)
 print_matrix(m1)
 """
-m=[
-    [0,100],
+square=[
+    [0,50],
     [0,0],
     [0,0],
     [1,1]
 ]
 
-add_edge(m, 100,0,0,100,100,0)
-add_edge(m, 100,100,0,0,100,0)
-add_edge(m, 0,100,0,0,0,0)
+add_edge(square, 50,0,0,50,50,0)
+add_edge(square, 50,50,0,0,50,0)
+add_edge(square, 0,50,0,0,0,0)
 
-rotZ45=make_rotZ(45)
-T100100=make_translate(100,100,0)
-
-print_matrix(m)
-
-fm=matrix_mult(rotZ45,m)
-
-print_matrix(fm)
+square=matrix_mult(make_translate(200,200,0),square)
 
 
-fm=matrix_mult(T100100,fm)
+for i in range(360):
+    square=scalar_mult(matrix_mult(make_rotZ(i),square),.99)
+    draw_lines(square,screen,[i%255,(i*i)%255,(i+i)%255])
 
-draw_lines(fm,screen,color)
+triangle=[
+    [450,410],
+    [0,70],
+    [0,0],
+    [1,1]
+]
+add_edge(triangle,410,70,0,490,70,0)
+add_edge(triangle,490,70,0,450,0,0)
 
+for i in range(360)[::-1]:
+    triangle=scalar_mult(matrix_mult(make_rotZ(i),triangle),.99)
+    draw_lines(triangle,screen,[(-1*i)%255,(i*i)%255,(-(i+i))%255])
+    
 display(screen)
