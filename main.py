@@ -48,6 +48,7 @@ for i in range(360):
     square=scalar_mult(matrix_mult(make_rotZ(i),square),.99)
     draw_lines(square,screen,[i%255,(i*i)%255,(i+i)%255])
 
+
 triangle=[
     [450,410],
     [0,70],
@@ -57,8 +58,11 @@ triangle=[
 add_edge(triangle,410,70,0,490,70,0)
 add_edge(triangle,490,70,0,450,0,0)
 
+#triangle=matrix_mult(make_translate(100,100,0),triangle)
 for i in range(360)[::-1]:
-    triangle=scalar_mult(matrix_mult(make_rotZ(i),triangle),.99)
-    draw_lines(triangle,screen,[(-1*i)%255,(i*i)%255,(-(i+i))%255])
-    
+    triangle=matrix_mult(make_rotZ(-i),triangle)
+    draw_lines(triangle,screen,[i%255,(i*i)%255,(i+i)%255])
+   
+#draw_lines(triangle,screen,color)
+
 display(screen)
